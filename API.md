@@ -9,50 +9,6 @@ api can be found at test.api.dashound.io.
 _Note:_ This document is set to wordwrap at 78 columns.  Some code block may
 looks strange because of this.
 
-
-Authentication
---------------
-
-Authenticating to the API happens by utilising an API key a shared secret and some
-custom headers and a SHA256 hash of shared secret and the URL.
-
-
-### Using the API key
-
-The API may be used by other applications and in order to do so the end user
-must set a number of custom headers in order to authenticate and authorise each
-request.  When a DashHound account applies for an API key one is generated for
-them along with a shared secret.  The shared secret _should_ only be known to
-the API user and DashHound and will _never_ be passed to the DashHound API
-in plain text.  
-
-The custom headers are:
-
-```
-X-DASHHOUND-KEY: End user's API key
-X-DASHHOUND-TIMESTAMP: Date and Time of the generated request in full ISO8601 format
-X-DASHHOUND-SIGNATURE: SHA256 hash of Shared Secret and the URL
-```
-
-For instance in order for an account with the API key of ```ZXCV0987``` and shared secret of ```SharedSecret``` to change their Dash with the ID ```ABCD1234``` the request would look like the following:
-
-_Note:_  Assume that ```$HASH = SHA256('SharedSecret/ABCD1234')``` in the following conversation.
-
-> TODO: Put in a proper example showing all headers in conversation
-
-
-
-```
-PUT /ABCDEFG
-
-X-DASHHOUND-KEY: ZXCV0987
-X-DASHHOUND-TIMESTAMP: 2013-01-18T09:34:51.520Z
-X-DASHHOUND-SIGNATURE: $HASH
-{
-	title: 'The title I have changed'
-}
-```
-
 #### Date Format for the API
 
 The date format should be in ISO8601 format to avoid ambiguities between timezones.  
