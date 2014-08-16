@@ -23,18 +23,17 @@ X-DASHHOUND-TIMESTAMP: Date and Time of the generated request in full ISO8601 fo
 X-DASHHOUND-SIGNATURE: SHA256 hash of Shared Secret and the URL
 ```
 
-For instance in order for the [sandbox](sandbox.md) account to change a dash
+For instance in order for the [sandbox](Sandbox.md) account to change a dash
 with the id ```56284fc6b8a843f4bb9b9eff7e9a5d26```
 
-_Note:_  The $HASH value in the following conversation is created from the code
-[hash](code/hash.js)
+_Note:_  The $HASH value in the following conversation is returned from the
+function [```hash(...)```](code/hash.coffee)
 
 > TODO: Put in a proper example showing all headers in conversation
 
 
-
 ```
-PUT /56284fc6b8a843f4bb9b9eff7e9a5d26
+PUT /1.0/dashes/56284fc6b8a843f4bb9b9eff7e9a5d26
 
 X-DASHHOUND-KEY: ZXCV0987
 X-DASHHOUND-TIMESTAMP: 2013-01-18T09:34:51.520Z
