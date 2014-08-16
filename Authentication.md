@@ -27,7 +27,7 @@ For instance in order for the [sandbox](Sandbox.md) account to change a dash
 with the id ```56284fc6b8a843f4bb9b9eff7e9a5d26```
 
 _Note:_  The $HASH value in the following conversation is returned from the
-function [```hash(...)```](code/hash.coffee)
+function [```hash(...)```](code/api-authentication.coffee)
 
 > TODO: Put in a proper example showing all headers in conversation
 
