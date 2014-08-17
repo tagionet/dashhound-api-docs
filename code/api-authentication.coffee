@@ -24,3 +24,6 @@ headers = createAPIHeaders('http://t.dashhound.io/', 'abcdefg','1234567', new Da
 console.log "API HEADERS"
 console.log "-----------"
 console.log util.inspect headers
+
+exports.hash = hash
+exports.createAPIHeaders = createAPIHeaders
