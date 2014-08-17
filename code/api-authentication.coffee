@@ -14,16 +14,5 @@ createAPIHeaders = (url, key, secret, date) ->
     'X-DASHHOUND-SIGNATURE' : hash(secret + '/' + url)
   }
 
-console.log "This is DEMO code for documentation purposes only\n"
-console.log "API SANDBOX"
-console.log "-----------"
-console.log util.inspect sandbox
-
-
-headers = createAPIHeaders('http://t.dashhound.io/', 'abcdefg','1234567', new Date().toISOString())
-console.log "API HEADERS"
-console.log "-----------"
-console.log util.inspect headers
-
 exports.hash = hash
 exports.createAPIHeaders = createAPIHeaders

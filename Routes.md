@@ -10,7 +10,7 @@ and a JSON response containing a success parameter and a message for error or
 the resource requested.
 
 
-Fetching dashes see [fetchDashes(...)](code/api-fetch-dashes.coffee)
+Fetching dashes see [fetchDashes(...)](code/api-fetch-dashes.coffee#L8)
 --------------------------------------------------------------
 ```GET /1.0/dashes```
 
