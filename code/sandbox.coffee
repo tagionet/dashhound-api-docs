@@ -1,8 +1,8 @@
 sandbox = {
   email: 'sandbox@dashhound.io'
   api: {
-    key: ''
-    secret: ''
+    key: '354b71f06c774f3895bcf5a3fad07bee'
+    secret: 'TestingSandbox'
   }
 }
 
