@@ -7,15 +7,15 @@ The sandbox account gets reset every 2 hours in the event that someone overwrite
 
 The sandbox accounts dashes and extra networks get wiped every 24 hours.
 
-Sandbox Details
+Sandbox Details [sandbox.coffee](code/sandbox.coffee)
 ---------------
 
 [Login](https://t.dashhound.io/login)
 
-*Login:*
+*Login:* sandbox@dashhound.io
 
-*Password:*
+*Password:* password
 
-*API Key:*
+*API Key:* 354b71f06c774f3895bcf5a3fad07bee
 
-*Shared Secret:*
+*Shared Secret:* TestingSandbox

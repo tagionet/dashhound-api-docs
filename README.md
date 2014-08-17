@@ -2,8 +2,22 @@ Dashhound API Documents
 =======================
 
 
-[API](https://github.com/tagionet/dashhound-api-docs/blob/master/API.md)
+[API](API.md)
+-------------
+Over voew of the Dashhound API
 
-[Authentication](https://github.com/tagionet/dashhound-api-docs/blob/master/Authentication.md)
+[Authentication](Authentication.md)
+-----------------------------------
+How to authenticate with the Dashhound API
 
-[Sandbox](https://github.com/tagionet/dashhound-api-docs/blob/master/Sandbox.md)
+[Dashes](Dashes.md)
+-------------------
+An explanation of dashes
+
+[Routes](Routes.md)
+-------------------
+The main endpoints to use in the Dashhound API.
+
+[Sandbox](Sandbox.md)
+---------------------
+The sandbox user account.
