@@ -1,0 +1,21 @@
+{
+  "name": "dashhound-api-docs",
+  "version": "0.0.1",
+  "description": "Code to accompany the documentation of Dashhound's API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tagionet/dashhound-api-docs"
+  },
+  "author": "matt@dashhound.io",
+  "bugs": {
+    "url": "https://github.com/tagionet/dashhound-api-docs/issues"
+  },
+  "homepage": "https://github.com/tagionet/dashhound-api-docs",
+  "dependencies": {
+    "request": "^2.40.0"
+  }
+}
