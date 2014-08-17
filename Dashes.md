@@ -259,7 +259,7 @@ Requests
 ---------
 
 The requests array is probably the most important thing in a dash, they are an  
-object conatining the request and the channel the request went out on as well
+object containing the request and the channel the request went out on as well
 as the response data from the request.
 
 A request which has gone out over an SMTP channel will look  like the following

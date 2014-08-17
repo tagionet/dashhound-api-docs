@@ -25,7 +25,9 @@ Response 200 on success
 }
 ```
 
-Fetching dashes in a particular network [fetchViaNetwork(...)](code/api-fetch-dashes.coffee)
+> TODO: Not yet implemented
+
+Fetching dashes in a particular network [fetchInNetwork(...)](code/api-fetch-dashes.coffee#L25)
 --------------------------------------------------------------------------------------------
 ```GET /1.0/networks/#{ NETWORKID }/dashes```
 
@@ -35,7 +37,9 @@ Response
 {
   success: true
   dashes: [
-
+    {
+      ...
+    }
   ]
 }
 ```
@@ -44,13 +48,13 @@ Fetching a dash [fetchDash(...)](code/api-fetch-dashes.coffee)
 --------------------------------------------------------------
 ```GET /1.0/dashes/#{ DASHID }```
 
-Response
+Response see also [Dashes](Dashes.md)
 
 ```
 {
   success: true
   dash: {
-
+    ...
   }
 }
 ```
