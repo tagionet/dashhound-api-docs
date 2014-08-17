@@ -4,7 +4,7 @@ Dashhound API Documents
 
 [API](API.md)
 -------------
-Over voew of the Dashhound API
+Overview of the Dashhound API
 
 [Authentication](Authentication.md)
 -----------------------------------
