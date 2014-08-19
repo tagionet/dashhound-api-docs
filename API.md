@@ -3,10 +3,10 @@ DashHound-API
 
 The DashHound API exposes dashes to the user by utilising
 [REST](http://http://en.wikipedia.org/wiki/Representational_state_transfer)
-techniques via HTTP.  The Base URL for the api is api.dashhound.io and the test
-api can be found at test.api.dashound.io.
+techniques via HTTP.  The Base URL for the api is (api1.dashhound.io) and the test
+api can be found at (https://t-api.dashound.io).
 
-_Note:_ This document is set to wordwrap at 78 columns.  Some code block may
+_Note:_ This document is set to wordwrap at 78 columns.  Some code blocks may
 looks strange because of this.
 
 #### Date Format for the API
@@ -48,22 +48,20 @@ or perl
 
 As always a ```200``` response means the request was successful and a ```403``` forbidden means the response was ignored due to auth problems.
 
-### By using Oauth
 
-> TODO: Implement Oauth authentication
+Authentication
+--------------
+
+In order to perform any actions on the API the end user _must_ have authenticated, see [Authentication](Authentication.md)
 
 Profiles
 --------
 
 ### Fetching a profile
 
-Perfom a GET request to ```/profile/:id```
+Perfom a GET request to ``/1.0/profile/:id` see [fetchProfile(...)](code/api-users.coffee)
 
-```
-curl -X GET http://api.dashhound.io/profile/bee3bc84285cc51a544d2631d803f149
-```
-
-The response mimetype will be ```application/json``` and the response will be a json document containing the requested profile.
+The response mimetype will be ```application/json``` and the response will be a JSON document containing the requested profile.
 
 ```javascript
 {
@@ -72,18 +70,25 @@ The response mimetype will be ```application/json``` and the response will be a 
 	email:	example@example.com
 	show_welcome_screen: false
 	username: 'An Example'
+	...
 }
 ```
 
 ### Saving a profile
 
-Perform a PUT request to ```/profile/bee3bc84285cc51a544d2631d803f149``` with the fields to change as the HTTP body
+Perform a PUT request to ``/profile/#{ profileId }` with the fields to change as the HTTP body see [updateProfile(...)](code/api-users.coffee)
 
-```
-curl -X PUT http://api.dashhound.io/profile -d '{ "email": "myemail@gmail.com", "show_welcome_screen":true}'
+Request
+
+```javascript
+{
+	email:	myemail@gmail.com
+}
 ```
 
-The response mimetype will be ```application/json``` and the response will be a json document containing the changed profile.
+The response mimetype will be ```application/json``` and the response will be a JSON document containing the changed profile.
+
+Response
 
 ```javascript
 {
@@ -97,11 +102,9 @@ The response mimetype will be ```application/json``` and the response will be a 
 
 ### Deleting a profile
 
-Perform a DELETE request to ```/profile/bee3bc84285cc51a544d2631d803f149```
+Perform a DELETE request to ```/profile/#{ profileId }``` see [deleteProfile(...)](code/api-users.coffee)
 
-```
-curl -X DEL http://api.dashhound.io/profile/bee3bc84285cc51a544d2631d803f149
-```
+Response
 
 The response mimetype will be ```application/json``` and the response will be a json document with a success flag. Once a profile has been deleted the session associated with it will have been destroyed and no API calls for that user will work.
 
@@ -115,11 +118,11 @@ The response mimetype will be ```application/json``` and the response will be a 
 Dashes
 ------
 
-Most activity in DashHound is based around Dashes. (Written explaination of what a dash is should go here)
+See [Dashes](Dashes.coffee)
 
 ### Creating a Dash
 
-In order to create a Dash the end user _must_ have previously authenticated themself by utilising one of the above techniques. See [Authentication](#authentication)
+In order to create a Dash the end user _must_ have previously authenticated, see [Authentication](Authentication.md)
 
 
 ### Fetching a Dash
