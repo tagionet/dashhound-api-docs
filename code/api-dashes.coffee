@@ -40,4 +40,6 @@ fetchDashesInNetwork = () ->
       else
         console.log "#{ data.errorCode } : #{ data.message }"
 
+createDash = ()->
+
 fetchDashesInNetwork()

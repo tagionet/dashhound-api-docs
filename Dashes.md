@@ -1,4 +1,4 @@
-Dashoound API - Dashes
+Dashound API - Dashes
 ======================
 
 At the heart of Dashhound are dashes, a dash is a single document containing all
@@ -330,18 +330,147 @@ The response will be
   }
 }
 ```
-In the event of an error the return will have the success value set to fale and
+In the event of an error the return will have the success value set to false and
 and [errorCode](ErrorCodes.md) attribute.
 
 
 Creating Dashes
 ---------------
-In order to create a dash POST a request to ```/1.0/#{ network id }/dashes```
+In order to create a dash POST a request to ```/1.0/#{ network id }/dashes``` with
+the body of the request being the dash to create
 
-Example ```hash(...)```](code/api-dashes.coffee)
+The request: (truncated)
+
+```javascript
+{
+   "user_id": "99e25528075e355230d8ed5e2dc0ff5d",
+   "leader": "matt@dashhound.io",
+   "network_id": "99e25528075e355230d8ed5e2dc1095a",
+   "participants": [
+       {
+           "role": "follower",
+           "message": "Custom message in here.",
+           "twitter": "@dashhoundio",
+       }
+   ],
+   "title": "Television shows",
+   "about": "",
+   "multiple_replies": false,
+   "email_on_reply": false,
+   "recurring": false,
+   "datapoints": [
+       {
+           "text": "The main topic of this dash.",
+           "type": "topic",
+           "values": "",
+           "kpi": false,
+           "mandatory": false,
+           "show_in_form": true,
+           "id": "2bdfe39ae4404e02806ac283f0c4c553"
+       },
+       {
+           "kpi": false,
+           "mandatory": false,
+           "show_in_form": true,
+           "default": "",
+           "text": "How did you like the second season of Orphan Black ?",
+           "type": "thumbs",
+           "id": "fea9e25ba97246d484ce2daad920f7cf"
+       }
+   ],
+   "requests": [{
+     "channel": {
+       "method": 'email',
+       "identifier": 'request@dashhound.io',
+     }
+   },{
+     "message": 'Custom message here if you want, otherwise leave the attribute out.'
+     "channel": {
+       "method": 'sms',
+       "identifier": '+614567891011',
+     }
+   },{
+     "message": 'Custom message here.'
+     "channel": {
+       "method": 'twitter',
+       "identifier": '@dashhoundio'
+     }
+   }]
+ }
+```
+
+The response will be
+
+```javascript
+{
+  success: true,
+  dash: {
+    _id: '99e25528075e355230d8ed5e2dc15233',
+    "title": "Television shows",
+    "about": "",
+    "multiple_replies": false,
+    "email_on_reply": false,
+    "recurring": false,
+    "state": "draft"
+    ...
+  }
+}
+```
+In the event of an error the return will have the success value set to false and
+and [errorCode](ErrorCodes.md) attribute.
+
+It should be noted here that the state for a generated dash is automatically ```state: draft```.
+If it is set to ```sent``` in the dash then it is in a released state and the requests are
+sent.
+
+Example ```createDash(...)```](code/api-dashes.coffee#L43)
 
 Updating Dashes
 ---------------
+
+In order to update a dash PUT a request to ```/1.0/#{ network id }/dashes/#{ dash id }``` with
+the body of the request being the dash to update, In the following example we have changed the state
+from ```draft``` to ```sent``` and added a new text datapoint. Changing the state to ```sent```
+has the effect of releasing the dash and notifying all the contributors in the requests array.
+
+```javascript
+{
+  "_id": "99e25528075e355230d8ed5e2dc15233",
+  "type": "datamatrix",
+  "state": "sent",
+  "title": "Television shows",
+  "about": "",
+  "multiple_replies": false,
+  "email_on_reply": false,
+  "recurring": false,
+  "datapoints": [
+    {
+        "text": "The main topic of this dash.",
+        "type": "topic",
+        "values": "",
+        "kpi": false,
+        "mandatory": false,
+        "show_in_form": true,
+        "id": "2bdfe39ae4404e02806ac283f0c4c553"
+    },
+    {
+        "kpi": false,
+        "mandatory": false,
+        "show_in_form": true,
+        "default": "",
+        "text": "How did you like the second season of Orphan Black ?",
+        "type": "thumbs",
+    },
+    {
+        "kpi": false,
+        "mandatory": false,
+        "show_in_form": true,
+        "default": "",
+        "text": "Why do you say that",
+        "type": "text"
+    }  
+  ]
+```
 
 Deleting Dashes
 ---------------

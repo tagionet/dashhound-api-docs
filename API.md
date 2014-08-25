@@ -122,30 +122,12 @@ Examples [code/api-dashes](code/api-dashes.coffee)
 
 ### Creating a dash
 
-See [Dashes](Dashes.coffee#creating_dashes)
+See [Creating Dashes](Dashes.coffee#creating-dashes)
 
 
 ### Fetching a Dash
 
-Perfom a GET request to ```/dash/:id``` where ```:id``` is the id of the Dash wanted.
-
-```
-curl -X GET http://t..dashhound.io/dash/bee3bc84285cc51a544d2631d803f149
-```
-
-The response mimetype will be `application/json` and the response will be a json document containing the requested dash.
-
-> TODO: Fill in more of the dash
-
-```javascript
-{
-  id: bee3bc84285cc51a544d2631d803f149,
-  title: ''
-}
-```
-
-If no dash has been found with the passed id then a ```404``` will be generated.
-
+See [Fetching Dashes](Dashes.coffee#fetching-dashes)
 
 
 ### Updating a Dash
