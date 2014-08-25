@@ -1,13 +1,12 @@
 # Error Codes returned from the DashHound API
 
 
-| Error Code | HTTP status | Error Description
-----------------------------------------------------------------------------
-| C1         | 500         | Unable to add comment for #{ req.UserId }
-
-| D1         | 501         | API version not implemented
-| D2         | 500         | Unable to fetch Dashe(s) because of an internal error
-| D3         | 404         | Unable to fetch Dashes
+| Error Code | HTTP status | Error Description                                                            |
+|------------|-------------|------------------------------------------------------------------------------|
+| C1         | 500         | Unable to add comment for #{ req.UserId }                                    |
+| D1         | 501         | API version not implemented                                                  |
+| D2         | 500         | Unable to fetch Dashe(s) because of an internal error                        |
+| D3         | 404         | Unable to fetch Dashes                                                       |
 | D4         | 500         | Unable to create a Dash
 | D5		     | 404		     | Your account is not a member of this network
 | D6		     | 500		     | Unable to fetch Dash for this user because of an internal error
