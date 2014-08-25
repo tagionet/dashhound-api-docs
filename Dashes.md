@@ -4,7 +4,7 @@ Dashound API - Dashes
 At the heart of Dashhound are dashes, a dash is a single document containing all
 the data.
 
-_NOTE_ the _rev attribute is not used and may be ignored.
+> _NOTE_ the _rev attribute is not used and may be ignored.
 
 ```
 {
@@ -306,7 +306,7 @@ A request which has gone out over an SMTP channel will look  like the following
 The responses are found within the responses array. The ordinality of the
 response value matches the ordinality in the datapoints array. This may change in the future.
 
-_NOTE_ that the response values below will have the dashes truncated for brevity.
+> _NOTE_ that the response values below will have the dashes truncated for brevity.
 
 
 Authentication
@@ -340,7 +340,7 @@ Creating Dashes
 In order to create a dash POST a request to ```/1.0/#{ network id }/dashes``` with
 the body of the request being the dash to create
 
-The request: (truncated)
+The request:
 
 ```javascript
 {
@@ -472,9 +472,52 @@ has the effect of releasing the dash and notifying all the contributors in the r
     }  
   ]
 ```
+The response will be:
+
+```javascript
+{
+  success: true,
+  dash: {
+    _id: '99e25528075e355230d8ed5e2dc15233',
+    "title": "Television shows",
+    "about": "",
+    "multiple_replies": false,
+    "email_on_reply": false,
+    "recurring": false,
+    "state": "sent"
+    ...
+  }
+}
+```
 
 Deleting Dashes
 ---------------
+Perform a ```DELETE``` request to ```/1.0/networks/#{ network id }/dashes/#{ dash id }```
+or to ```/1.0/dashes/#{ dash id }```.
 
-Releasing Dashes
+Response:
+
+```javascript
+{
+  "success": true,
+  "message": "Dash 99e25528075e355230d8ed5e2dc15233 deleted"
+}
+```
+
+
+Dash States
 ----------------
+
+A dash has 3 states, ```draft```, ```sent``` and ```stopped``` the ```status```
+attribute of the dash advises which state the dash is in. Setting this attribute
+on the dash has the following effects:
+
+```draft``` : the dash is not released, can not have any responses recorded  and
+no contributors have been notified.
+
+```sent``` : the dash has been released, is available for gathering data and the
+contributors have been notified.
+
+```stopped``` : the dash has been stopped form gathering any data.
+
+A dash can be changed from any of these states to any other.
