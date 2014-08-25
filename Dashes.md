@@ -260,9 +260,10 @@ _NOTE_ the _rev attribute is not used and may be ignored.
 Requests
 ---------
 
-The requests array is probably the most important thing in a dash, they are an  
-object containing the request and the channel the request went out on as well
-as the response data from the request.
+The requests array is probably the most important attribute in a dash, it is an
+array which contains request objects. A request object contains the channel the
+request went out on as well as the response data from the request and a few extra
+attributes pertaining to the channel response data.
 
 A request which has gone out over an SMTP channel will look  like the following
 
