@@ -118,11 +118,11 @@ The response mimetype will be ```application/json``` and the response will be a 
 Dashes
 ------
 
-See [Dashes](Dashes.coffee)
+Examples [code/api-dashes](code/api-dashes.coffee)
 
-### Creating a Dash
+### Creating a dash
 
-In order to create a Dash the end user _must_ have previously authenticated, see [Authentication](Authentication.md)
+See [Dashes](Dashes.coffee#creating_dashes)
 
 
 ### Fetching a Dash
@@ -130,7 +130,7 @@ In order to create a Dash the end user _must_ have previously authenticated, see
 Perfom a GET request to ```/dash/:id``` where ```:id``` is the id of the Dash wanted.
 
 ```
-curl -X GET http://api.dashhound.io/dash/bee3bc84285cc51a544d2631d803f149
+curl -X GET http://t..dashhound.io/dash/bee3bc84285cc51a544d2631d803f149
 ```
 
 The response mimetype will be `application/json` and the response will be a json document containing the requested dash.
@@ -146,7 +146,7 @@ The response mimetype will be `application/json` and the response will be a json
 
 If no dash has been found with the passed id then a ```404``` will be generated.
 
-As always if the end user is unauthenticated then a ```403``` will be raised.
+
 
 ### Updating a Dash
 

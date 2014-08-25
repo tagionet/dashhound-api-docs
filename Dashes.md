@@ -4,6 +4,8 @@ Dashoound API - Dashes
 At the heart of Dashhound are dashes, a dash is a single document containing all
 the data.
 
+_NOTE_ the _rev attribute is not used and may be ignored.
+
 ```
 {
    "_id": "99e25528075e355230d8ed5e2dc15233",
@@ -301,4 +303,48 @@ A request which has gone out over an SMTP channel will look  like the following
 ```
 
 The responses are found within the responses array. The ordinality of the
-response value matches the ordinality in the datapoints array.
+response value matches the ordinality in the datapoints array. This may change in the future.
+
+_NOTE_ that the response values below will have the dashes truncated for brevity.
+
+
+Authentication
+---------------
+All queries must be authenticated, see [Authentication](Authentication.md)
+
+
+Fetching Dashes
+---------------
+Perform a ```GET``` request to ```/1.0/networks/#{ network id }/dashes/#{ dash id }```
+or to ```/1.0/dashes/#{ dash id }```
+
+The response will be
+
+```javascript
+{
+  success: true,
+  dash: {
+    _id: 'bee3bc84285cc51a544d2631d803f149',
+    title: 'Some fantastic title.'
+    ...
+  }
+}
+```
+In the event of an error the return will have the success value set to fale and
+and [errorCode](ErrorCodes.md) attribute.
+
+
+Creating Dashes
+---------------
+In order to create a dash POST a request to ```/1.0/#{ network id }/dashes```
+
+Example ```hash(...)```](code/api-dashes.coffee)
+
+Updating Dashes
+---------------
+
+Deleting Dashes
+---------------
+
+Releasing Dashes
+----------------
