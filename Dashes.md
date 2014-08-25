@@ -424,7 +424,7 @@ It should be noted here that the state for a generated dash is automatically ```
 If it is set to ```sent``` in the dash then it is in a released state and the requests are
 sent.
 
-> Example ```createDash(...)```](code/api-dashes.coffee#L43)
+> Example [```createDash(...)```](code/api-dashes.coffee#L43)
 
 Updating Dashes
 ---------------
@@ -490,7 +490,7 @@ The response will be:
 }
 ```
 
-> Example ```updateDash(...)```](code/api-dashes.coffee#L45)
+> Example [```updateDash(...)```](code/api-dashes.coffee#L45)
 
 
 Deleting Dashes
@@ -506,7 +506,7 @@ Response:
   "message": "Dash 99e25528075e355230d8ed5e2dc15233 deleted"
 }
 ```
-> Example ```deleteDash(...)```](code/api-dashes.coffee#L47)
+> Example [```deleteDash(...)```](code/api-dashes.coffee#L47)
 
 Dash States
 ----------------
