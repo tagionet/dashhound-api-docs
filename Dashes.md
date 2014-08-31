@@ -530,7 +530,8 @@ DataPoints
 ----------
 
 Datapoints are the main "questions" in a dash, they are held in the Dash in an
-array under the attribute 'datapoint'.
+array under the attribute 'datapoint'. Each datapoint is displayed to the end user
+on the response form unless the ```show_in_form``` value is set to false.
 
 A datapoint has the following properties
 
@@ -576,14 +577,58 @@ datapoints: [
 ]
 ```
 
-DataPoint Types
----------------
+### DataPoint Types
 
-| Type          | Description
-|---------------|------------------------------------------------------------------
-| photo         | An image taken from the phone or uploaded via the browser
-| content_block | A block of content with basic styling using markdown
-| hidden        | A hidden datapoint, it is not shown to the end user
-| range         | A range of integers, this datapoint has extra attributes
-|                 which allows for the formatting of the min and max values as
-|                 well as the min and max labels.
+
+| Type          | Description                                               | Extra attributes
+|---------------|-----------------------------------------------------------|-------
+| topic         | A fixed datapoint that acts as the topic of the datasheet.|
+| photo         | An image taken from the phone or uploaded via the browser.|
+| content_block | A block of content with basic styling using markdown.     |
+| hidden        | A hidden datapoint, it is not shown to the end user.      |
+| numerics      | Allows the input of numbers.                              |
+| text          | Allows the input of text.                                 |
+| range         | A range of integers.                                      | [Yes](#range-extra-attributes)
+| picklist      | Displays a drop down list of values.                      | [Yes](#picklist-extra-attributes)
+| thumbs        | Displays thumbs up and thumbs down.                       |
+| traffic_lights| Displays the red, amber, green traffic lights             |
+| rating        | Displays a row of stars.                                  | [Yes](#rating-extra-attributes)
+
+#### Range extra attributes
+
+The range datapoint has extra attributes for display, namely number, minimum
+and caption. The ```number``` attribute defines the number of integers displayed, the
+```minimum``` attribute defines the minimum value in the range and the ```caption```
+attribute is an object which defines the labels displayed on the low and high values
+of the range.
+
+```javascript
+  number: 10,
+  minimum: 1,
+  caption: {
+    low: "Min Value",
+    high: "Max Value"
+}
+```
+
+#### Picklist extra attributes
+
+The only extra attribute for the picklist is an array of values to display in the
+drop down box.
+
+```javascript
+values: [
+  "One fish",
+  "Two fish",
+  "Red fish",
+  "Blue fish"
+]
+```
+
+#### Rating extra values
+
+The only extra attribute for the rating datapoint is the number of stars to display.
+
+```javascript
+number: 5
+```
