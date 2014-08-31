@@ -334,6 +334,7 @@ The response will be
 In the event of an error the return will have the success value set to false and
 and [errorCode](ErrorCodes.md) attribute.
 
+> Example [```fetchDash(...)```](code/api-dashes.coffee#L41)
 
 Creating Dashes
 ---------------
@@ -424,7 +425,7 @@ It should be noted here that the state for a generated dash is automatically ```
 If it is set to ```sent``` in the dash then it is in a released state and the requests are
 sent.
 
-> Example [```createDash(...)```](code/api-dashes.coffee#L43)
+> Example [```createDash(...)```](code/api-dashes.coffee#L57)
 
 Updating Dashes
 ---------------
@@ -490,7 +491,7 @@ The response will be:
 }
 ```
 
-> Example [```updateDash(...)```](code/api-dashes.coffee#L45)
+> Example [```updateDash(...)```](code/api-dashes.coffee#L106)
 
 
 Deleting Dashes
@@ -506,16 +507,16 @@ Response:
   "message": "Dash 99e25528075e355230d8ed5e2dc15233 deleted"
 }
 ```
-> Example [```deleteDash(...)```](code/api-dashes.coffee#L47)
+> Example [```deleteDash(...)```](code/api-dashes.coffee#L145)
 
 Dash States
-----------------
+-----------
 
 A dash has 3 states, ```draft```, ```sent``` and ```stopped``` the ```status```
 attribute of the dash advises which state the dash is in. Setting this attribute
 on the dash has the following effects:
 
-```draft``` : the dash is not released, can not have any responses recorded  and
+```draft``` : the dash is not released, can not have any responses recorded and
 no contributors have been notified.
 
 ```sent``` : the dash has been released, is available for gathering data and the
@@ -524,3 +525,65 @@ contributors have been notified.
 ```stopped``` : the dash has been stopped form gathering any data.
 
 A dash can be changed from any of these states to any other.
+
+DataPoints
+----------
+
+Datapoints are the main "questions" in a dash, they are held in the Dash in an
+array under the attribute 'datapoint'.
+
+A datapoint has the following properties
+
+| Attribute    | Description
+|--------------|------------------------------------------------------------------
+| id           | The unique id of this datapoint.
+| text         | The question text
+| type         | The datapoint type see [datapoint types](#datapoint-types)
+| values       | The default values for the datapoint
+| kpi          | Indicates that this datapoint is a key performance indicator
+| mandatory    | Indicates that this datapoint must be filled in prior to submission
+| show_in_form | Indicates that this datapoint is to be show to the end user.
+
+> example datapoints array
+
+```javascript
+datapoints: [
+  {
+      "text": "The main topic of this dash.",
+      "type": "topic",
+      "values": "",
+      "kpi": false,
+      "mandatory": false,
+      "show_in_form": true,
+      "id": "2bdfe39ae4404e02806ac283f0c4c553"
+  },
+  {
+      "kpi": false,
+      "mandatory": false,
+      "show_in_form": true,
+      "default": "",
+      "text": "How did you like the second season of Orphan Black ?",
+      "type": "thumbs",
+  },
+  {
+      "kpi": false,
+      "mandatory": false,
+      "show_in_form": true,
+      "default": "",
+      "text": "Why do you say that",
+      "type": "text"
+  }  
+]
+```
+
+DataPoint Types
+---------------
+
+| Type          | Description
+|---------------|------------------------------------------------------------------
+| photo         | An image taken from the phone or uploaded via the browser
+| content_block | A block of content with basic styling using markdown
+| hidden        | A hidden datapoint, it is not shown to the end user
+| range         | A range of integers, this datapoint has extra attributes
+|                 which allows for the formatting of the min and max values as
+|                 well as the min and max labels.
