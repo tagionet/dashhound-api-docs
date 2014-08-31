@@ -625,7 +625,7 @@ values: [
 ]
 ```
 
-#### Rating extra values
+#### Rating extra attributes
 
 The only extra attribute for the rating datapoint is the number of stars to display.
 
